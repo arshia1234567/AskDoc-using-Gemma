@@ -16,9 +16,11 @@ import tempfile  # Added to handle file saving
 load_dotenv()
 
 # Load the GROQ and Google API keys
-groq_api_key = os.getenv('GROQ_API_KEY')
-os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
-
+# groq_api_key = os.getenv('GROQ_API_KEY')
+# 
+groq_api_key = st.secrets["groq"]
+google_api_key = st.secrets["google"]
+os.environ["GOOGLE_API_KEY"] = google_api_key
 # Streamlit app title
 st.title("ASK YOUR DOC")
 
